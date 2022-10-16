@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Contacto } from '../../models/contact.class';
 
 
-const ContactComponent = ({ contact }) => {
+const ContactComponent = ({ contact }) =>  {
     return (
         <div>
             <h4>
