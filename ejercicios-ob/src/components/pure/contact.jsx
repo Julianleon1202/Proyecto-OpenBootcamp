@@ -1,35 +1,63 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Contacto } from '../../models/contact.class';
+import '../../styles/contact.scss'
 
 
-const ContactComponent = ({ contact }) =>  {
+const ContactComponent = ({ contact, conexion, remove }) =>  {
+
+    useEffect(() => {
+        console.log('Contacto creado')
+        return () => {
+            console.log(`Contacto: ${contact.nombre} va a ser desmontada`)
+        };
+    }, [contact]);
+
+    function contactIconConected(){
+        if(contact.conected){
+            return (<i onClick={()=>conexion(contact)} className='bi-toggle-on contact-action' style={{color:'green'}}></i>) 
+        }
+
+        else{
+            return (<i onClick={()=>conexion(contact)} className='bi-toggle-off contact-action' style={{color:'grey'}}></i>)
+        }
+    }
+
+
+
     return (
-        <div>
-            <h4>
-                El nombre del contacto es: { contact.nombre }
-            </h4>
-            <h4>
-                El apellido del contacto es: { contact.apellido }
-            </h4>
-            <h4>
-                El email del contacto es: { contact.email }
-            </h4>
-            <h4>
-                El estado es: { contact.conectado ? 'Contacto en línea':'Contacto no disponible'}
-                
-            </h4>
-        </div>
+
+        <tr className='fw-normal'>
+            <th>
+                <span className='ms-2'>{contact.nombre}</span>
+            </th>
+
+            <td className='alig-midle'>
+                <span>{contact.apellido}</span>
+            </td>
+
+            <td className='alig-midle'>
+                <span>{contact.email}</span>
+            </td>
+
+            <td className='alig-midle'>
+
+                {contactIconConected()}
+
+                <i onClick={() => remove(contact) } className='bi-trash contact-action' style={{color:'purple'}}></i>
+
+            </td>
+
+        </tr>
+
     );
 };
 
 
 ContactComponent.propTypes = {
-    contacto :PropTypes.instanceOf(Contacto),
-    nombre: PropTypes.string,
-    apellido: PropTypes.string,
-    email: PropTypes.string,
-    conectado: PropTypes.bool
+    contacto :PropTypes.instanceOf(Contacto).isRequired,
+    conexion: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired
 };
 
 
