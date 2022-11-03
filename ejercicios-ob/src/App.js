@@ -4,6 +4,7 @@ import './App.css';
 import Clockfuncional from './ejercicios-op/Clockfuncional';
 import ListContact from './components/pure/container/list_contact';
 import CambioColor from './ejercicios-op/cambioColor';
+import RegisterFormik from './components/pure/forms/registerFormik';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
           {/* <ListContact></ListContact> */}
           {/* <Clockclase></Clockclase> */}
           {/* <Clockfuncional></Clockfuncional> */}
-          <CambioColor></CambioColor>
+          {/* <CambioColor></CambioColor> */}
+          <RegisterFormik></RegisterFormik>
     </div>
   );
 }
