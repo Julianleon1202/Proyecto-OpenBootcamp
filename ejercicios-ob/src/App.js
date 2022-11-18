@@ -6,6 +6,7 @@ import ListContact from './components/pure/container/list_contact';
 import CambioColor from './ejercicios-op/cambioColor';
 import RegisterContact from './pages/auth/RegisterContact';
 import ChuckNorris from './components/pure/ChuckNorris';
+import UseReducer from './components/pure/container/useReducer';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           {/* <Clockfuncional></Clockfuncional> */}
           {/* <CambioColor></CambioColor> */}
           {/* <RegisterContact></RegisterContact> */}
-          <ChuckNorris></ChuckNorris>
+          {/* <ChuckNorris></ChuckNorris> */}
+          <UseReducer></UseReducer>
     </div>
   );
 }
